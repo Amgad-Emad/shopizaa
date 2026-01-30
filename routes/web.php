@@ -7,7 +7,7 @@ foreach (config('tenancy.central_domains') as $domain) {
      Route::domain($domain)->group(function () {
 
         Route::get('/', function () {
-            return view('welcome');
+            return view('home');
         });
 
         Route::get('/dashboard', function () {
@@ -19,6 +19,9 @@ foreach (config('tenancy.central_domains') as $domain) {
             Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
             Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
         });
+
+
+
         require __DIR__.'/auth.php';
 
     });
